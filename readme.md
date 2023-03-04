@@ -21,6 +21,7 @@ run `docker-compose up -d` to launch TestLab in detached mode
 run `docker-compose down` to spin down and remove the stopped container
 
 **To launch the TestLab service on the AWS ECS**
+Set up the `.env` file as described above, and store it in the same directory as the `docker-compose.yml` file.
 To deploy to ECS using docker compose, you need to have set up a user on the AWS account that has admin permissions.
 
 If you have not already done so, run the docker context create ecs myecscontext command to create an Amazon ECS Docker context named myecscontext. If you have already installed and configured the AWS CLI, the setup command lets you select an existing AWS profile to connect to Amazon.
