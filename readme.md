@@ -19,3 +19,12 @@ PG_USERNAME=postgres
 
 run `docker-compose up -d` to launch TestLab in detached mode
 run `docker-compose down` to spin down and remove the stopped container
+
+**To launch the TestLab service on the AWS ECS**
+To deploy to ECS using docker compose, you need to have set up a user on the AWS account that has admin permissions.
+
+If you have not already done so, run the docker context create ecs myecscontext command to create an Amazon ECS Docker context named myecscontext. If you have already installed and configured the AWS CLI, the setup command lets you select an existing AWS profile to connect to Amazon.
+
+Run `docker compose up` to start the application on the ECS, and `docker compose down` to stop the application.
+
+`docker compose ps` shows the status of the containers and the address where they can be reached.
