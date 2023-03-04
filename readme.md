@@ -1,25 +1,21 @@
-This repo contains:
+## TestLab Quick Start
 
-`docker-compose.yml` that can be used to deploy the TestLab application to a user's localhost, virtual server, or AWS service (e.g., EC2 instance or ECS)
-
-**To launch the TestLab service on the server of your choice**
-Include a `.env` file in the same directory as the `docker-compose.yml` that includes the following (include your own password for `PG_PASSWORD`):
-
+### Clone the TestLab GitHub repo
 ```
-PORT=3000
-PG_DATABASE=TestLab
-PG_PASSWORD=password
-PG_USERNAME=postgres
+git clone https://github.com/TestL-ab/testlab-docker.git
+cd testlab-docker
 ```
+
+### Launch the TestLab service on the localhost or server of your choice
 
 run `docker-compose up -d` to launch TestLab in detached mode
+
 run `docker-compose down` to spin down and remove the stopped container
 
-**To launch the TestLab service on the AWS ECS**
 
-Set up the `.env` file as described above, and store it in the same directory as the `docker-compose.yml` file.
+### Launch the TestLab service on the AWS Elastic Container Service
 
-To deploy to ECS using docker compose, you need to have set up a user on the AWS account that has admin permissions.
+To deploy to ECS using docker compose, you need to have set up a user with admin persmissions on an AWS account.
 
 If you have not already done so, run the `docker context create ecs myecscontext` command to create an Amazon ECS Docker context named `myecscontext`. If you have already installed and configured the AWS CLI, the setup command lets you select an existing AWS profile to connect to Amazon.
 
@@ -28,3 +24,7 @@ Make sure you are in the ecs context by using `docker context use myecscontext`.
 Run `docker compose up` to start the application on the ECS, and `docker compose down` to stop the application.
 
 `docker compose ps` shows the status of the containers and the address where they can be reached.
+
+### View the TestLab Application
+
+The TestLab Application can be viewed at `http://localhost:3000` or at the 3000 port of the public IP address of your server.
