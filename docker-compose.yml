@@ -21,5 +21,13 @@ services:
       - database-data:/var/lib/postgresql/data/
     env_file:
       - .env
+  frontend:
+    image: public.ecr.aws/l4e5z4f8/testlab/admin-ui
+    container_name: "admin-ui"
+    ports:
+      - "3001:3001"
+    depends_on:
+      - server
+      - database
 volumes:
   database-data:
